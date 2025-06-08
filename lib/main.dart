@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => CryptoViewModel(CryptoRepository(CryptoDataSource()))),
       ],
       child: MaterialApp(
-        title: 'Crypto Market',
+        title: 'Coin Market',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           useMaterial3: true,
