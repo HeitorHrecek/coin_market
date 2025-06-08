@@ -14,6 +14,7 @@ class CryptoCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       elevation: 4,
+      color: Colors.orange.shade50,
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: ListTile(
@@ -22,8 +23,10 @@ class CryptoCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 4),
-              Text('USD: ${Formatter.usd(crypto.priceUsd)}'),
-              Text('BRL: ${Formatter.brl(crypto.priceBrl)}'),
+              Text('USD: ${Formatter.usd(crypto.priceUsd)}', 
+                style: TextStyle(color: Colors.deepOrange.shade700)),
+              Text('BRL: ${Formatter.brl(crypto.priceBrl)}',
+                style: TextStyle(color: Colors.deepOrange.shade700)),
             ],
           ),
         ),

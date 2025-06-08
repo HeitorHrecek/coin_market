@@ -32,7 +32,11 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
     final viewModel = context.watch<CryptoViewModel>();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Crypto Market')),
+      backgroundColor: Colors.orange.shade50,
+      appBar: AppBar(
+        title: const Text('Crypto Market'),
+        elevation: 4,
+      ),
       body: Column(
         children: [
           Padding(
@@ -41,9 +45,18 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
               controller: _searchController,
               decoration: InputDecoration(
                 hintText: 'Search symbols: BTC,ETH',
+                hintStyle: TextStyle(color: Colors.orange.shade800),
                 border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide(color: Colors.deepOrange.shade400, width: 2),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide(color: Colors.orange.shade300),
+                ),
                 suffixIcon: IconButton(
-                  icon: const Icon(Icons.search),
+                  icon: Icon(Icons.search, color: Colors.deepOrange),
                   onPressed: () => viewModel.fetchCryptos(_searchController.text),
                 ),
               ),
@@ -61,13 +74,19 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
               child: Builder(
                 builder: (_) {
                   if (viewModel.isLoading) {
-                    return const Center(child: CircularProgressIndicator());
+                    return Center(child: CircularProgressIndicator(color: Colors.deepOrange));
                   }
                   if (viewModel.errorMessage.isNotEmpty) {
-                    return Center(child: Text(viewModel.errorMessage));
+                    return Center(child: Text(
+                      viewModel.errorMessage,
+                      style: TextStyle(color: Colors.red.shade800),
+                    ));
                   }
                   if (viewModel.cryptos.isEmpty) {
-                    return const Center(child: Text('No data available'));
+                    return Center(child: Text(
+                      'No data available',
+                      style: TextStyle(color: Colors.orange.shade800),
+                    ));
                   }
 
                   return ListView.builder(
