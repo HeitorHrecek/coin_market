@@ -21,7 +21,8 @@ cd coin_market
 flutter pub get
 ```
 
-3. Adicione sua API Key em lib\data\crypto_data_source 
+3. Adicione sua API Key em lib\data\crypto_data_source. 
+
 Exemplo:
 ```
 static const _apiKey = 'c7dc7e6f-758c-4e1f-88b6-50d2caf5982d';
